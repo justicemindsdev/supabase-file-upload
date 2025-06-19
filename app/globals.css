@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 6, 8, 24;
+  --background-end-rgb: 10, 15, 32;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Background animations */
+@keyframes spotlight {
+  0% { top: 20%; left: 30%; }
+  25% { top: 60%; left: 50%; }
+  50% { top: 40%; left: 70%; }
+  75% { top: 70%; left: 30%; }
+  100% { top: 30%; left: 60%; }
+}
+
+@keyframes spotlight2 {
+  0% { top: 70%; left: 20%; }
+  25% { top: 30%; left: 60%; }
+  50% { top: 60%; left: 30%; }
+  75% { top: 20%; left: 70%; }
+  100% { top: 50%; left: 40%; }
+}
+
+.animate-spotlight {
+  animation: spotlight 25s infinite alternate ease-in-out;
+}
+
+.animate-spotlight2 {
+  animation: spotlight2 30s infinite alternate ease-in-out;
+}
