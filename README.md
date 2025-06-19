@@ -75,7 +75,7 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
-The application is deployed at [https://1sites-haou7t8rs-justiceminds-projects.vercel.app](https://1sites-haou7t8rs-justiceminds-projects.vercel.app).
+The application is deployed at [https://1sites-5ep2x518t-justiceminds-projects.vercel.app](https://1sites-5ep2x518t-justiceminds-projects.vercel.app).
 
 **Note:** We attempted to set up the custom domain `utility.justice-minds.com` but encountered an authorization error. To use a custom domain, you'll need to:
 1. Verify ownership of the domain in Vercel
