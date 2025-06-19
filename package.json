@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "setup": "node setup-env.js",
+    "setup:all": "node setup-env.js --all",
+    "setup:vercel": "node setup-env.js --vercel --domain",
+    "setup:bucket": "node setup-env.js --bucket"
   },
   "dependencies": {
     "@supabase/ssr": "^0.1.0",

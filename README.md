@@ -33,39 +33,38 @@ cd supabase-file-upload
 npm install
 ```
 
-### 3. Set up environment variables
+### 3. Set up environment variables and Supabase bucket
 
-Create a `.env.local` file in the root directory with your Supabase credentials:
+This project includes a setup script that automates the environment configuration process. You can run:
+
+```bash
+# Set up local environment variables (.env.local)
+npm run setup
+
+# Set up everything (local env, Vercel env, custom domain, Supabase bucket)
+npm run setup:all
+
+# Set up only Vercel environment and custom domain
+npm run setup:vercel
+
+# Set up only Supabase storage bucket
+npm run setup:bucket
+```
+
+The script will:
+- Create a `.env.local` file with the correct Supabase credentials
+- Set up environment variables in Vercel (if using `--vercel` flag)
+- Configure the custom domain utility.justice-minds.com (if using `--domain` flag)
+- Create and configure the Supabase storage bucket (if using `--bucket` flag)
+
+For manual setup, create a `.env.local` file with:
 
 ```
-NEXT_PUBLIC_SUPABASE_URL=https://your-project-ref.supabase.co
+NEXT_PUBLIC_SUPABASE_URL=https://tvecnfdqakrevzaeifpk.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
-```
-
-### 4. Create the storage bucket using Supabase CLI
-
-Install the Supabase CLI if you haven't already:
-
-```bash
-npm install -g supabase
-```
-
-Login to your Supabase account:
-
-```bash
-supabase login
-```
-
-Link your project:
-
-```bash
-supabase link --project-ref your-project-reference-id
-```
-
-Create the storage bucket:
-
-```bash
-supabase storage create sites --public
+SUPABASE_BUCKET_NAME=sites
+SUPABASE_REGION=eu-west-2
+SUPABASE_STORAGE_URL=https://tvecnfdqakrevzaeifpk.supabase.co/storage/v1/s3
 ```
 
 ### 5. Run the development server
@@ -75,6 +74,8 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
+
+The application is also deployed at [https://utility.justice-minds.com](https://utility.justice-minds.com).
 
 ## Usage
 
