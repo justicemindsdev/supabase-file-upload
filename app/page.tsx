@@ -1,12 +1,23 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { createClient } from '@/utils/supabase/client'
-import FileUploader from '@/components/FileUploader'
-import UploadHistory from '@/components/UploadHistory'
+import { createClient } from '../utils/supabase/client'
+import FileUploader from '../components/FileUploader'
+import UploadHistory from '../components/UploadHistory'
+
+// Define the upload record type
+interface UploadRecord {
+  path: string
+  folder: string
+  name: string
+  size: number
+  type: string
+  url: string
+  uploadedAt: string
+}
 
 export default function Home() {
-  const [uploadHistory, setUploadHistory] = useState([])
+  const [uploadHistory, setUploadHistory] = useState<UploadRecord[]>([])
   const [showHistory, setShowHistory] = useState(false)
   const supabase = createClient()
 
@@ -18,7 +29,7 @@ export default function Home() {
     }
   }, [])
 
-  const handleUploadSuccess = (uploadRecord) => {
+  const handleUploadSuccess = (uploadRecord: UploadRecord) => {
     const updatedHistory = [uploadRecord, ...uploadHistory]
     if (updatedHistory.length > 100) {
       updatedHistory.splice(100)

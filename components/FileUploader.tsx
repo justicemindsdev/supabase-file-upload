@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useRef, ChangeEvent, FormEvent } from 'react'
-import { createClient } from '@/utils/supabase/client'
+import { createClient } from '../utils/supabase/client'
 
 // File type mapping for folder organization
 const fileTypeMap: Record<string, string> = {
@@ -132,11 +132,11 @@ export default function FileUploader({ onUploadSuccess }: FileUploaderProps) {
         .from('sites')
         .upload(filePath, file, {
           cacheControl: '3600',
-          upsert: true,
-          onUploadProgress: (progress) => {
-            setProgress(Math.round((progress.loaded / progress.total) * 100))
-          }
+          upsert: true
         })
+      
+      // Note: onUploadProgress is not supported in the current type definitions
+      // We're using the progress interval simulation instead
       
       clearInterval(progressInterval)
       
